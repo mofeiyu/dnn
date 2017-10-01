@@ -5,6 +5,7 @@
     "layers_sizes": [128, 64, 32, 16, 1],
     "dropout": [0, 0, 0, 0],
     "batch_size": 128,
+    "layer":"relu",
     "l1_regularization_strength": 3,
     "l5_regularization_strength": 5,
     "activation_function": "relu",

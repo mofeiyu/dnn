@@ -3,13 +3,16 @@ import data
 import train
 import test
 
+import logging
 from data import load_data
 from data import normalization
 from train import train
 from test import test 
 
 from config import Config
-from test.test_normalization import NormalizationTest
+
+config = Config()
+logging.basicConfig(level=logging.DEBUG) # debug log level
 
 train_x, train_y, test_x, test_y = load_data.Load_Data()
 if config.data_stand == "normalization":

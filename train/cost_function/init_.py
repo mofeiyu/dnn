@@ -1,5 +1,3 @@
-import numpy as np
-
 class Cost:
     @staticmethod
     def J(z):
