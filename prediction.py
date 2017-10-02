@@ -17,6 +17,8 @@ logging.basicConfig(level=logging.DEBUG) # debug log level
 train_x, train_y, test_x, test_y = load_data.Load_Data()
 if config.data_stand == "normalization":
     train_x = normalization.normalization(train_x)
+    
+
 parameters = train.L_layer_model(Config, train_x, train_y, num_iterations = 2500, print_cost = True)
 pred_train = test.predict(Config, train_x, train_y, parameters)
 pred_test = test.predict(Config, test_x, test_y, parameters)

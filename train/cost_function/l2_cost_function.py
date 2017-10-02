@@ -1,7 +1,14 @@
 import numpy as np
-from init_ import Cost
-class L2_Cost_Function(Cost):
+from basic import Cost
+from cost_funtion import CostFunction
+class L2CostFunction(Cost):
     @staticmethod
-    def l2_cost(AL,Y, parameters):
-        
+    def sum_parameters(L,parameters):
+        sum_para = 0
+        for l in range(1,L):
+            sum_para += np.sum(np.sum(parameters['W' + str(l)]**2))
+        return sum_para
+    @staticmethod
+    def cost(AL,Y, L, parameters):
+        cost = cost_funtion.CostFunction(AL,Y) + sum_parameters(L,parameters)
         return cost

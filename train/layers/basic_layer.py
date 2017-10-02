@@ -3,5 +3,5 @@ class Layer:
     def forward(z):
         pass
     @staticmethod
-    def backprop(z):
+    def backward(z):
         pass
