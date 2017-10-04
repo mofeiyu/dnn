@@ -40,7 +40,7 @@ def L_layer_model(config, X, Y, num_iterations = 3000, print_cost=False):
     if m % config.batch_size != 0:
         batch_num == batch_num + 1
     
-    act_layer,cost_function,update_parameters = get_.get(config)
+    act_layer, cost_function, update_parameters = get_.get(config)
         
     for i in range(0, num_iterations): 
         if batch_num != 1:

@@ -1,3 +1,4 @@
+import numpy as np
 from basic_layer import Layer
 class LinearLayer(Layer):
     @staticmethod

@@ -2,7 +2,7 @@
     "data_stand":"normalization",
     "learning_rate": 0.001,
     "learning_decay": 0.00001,
-    "layers_sizes": [128, 64, 32, 16, 1],
+    "layers_sizes": [128, 64, 32, 16, 10, 1],
     "dropout": [0, 0, 0, 0],
     "batch_size": 128,
     "layer":"relu",

@@ -38,7 +38,7 @@ def get_update_parameters(conf):
     learning_rate = conf.learning_rate
     opt = conf.opt
     if opt == "adam": 
-        adam = adam.AdamOptimizer(L, learning_rate)             
+        adam = adam.AdamOptimizer(L, learning_rate, conf.beta1, conf.beta2)             
         return adam
     elif opt == "momentum":
         mom = momentum.MomentumOptimizer(L, learning_rate)            

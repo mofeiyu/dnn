@@ -20,8 +20,7 @@ if config.data_stand == "normalization":
     
 
 parameters = train.L_layer_model(Config, train_x, train_y, num_iterations = 2500, print_cost = True)
-pred_train = test.predict(Config, train_x, train_y, parameters)
-pred_test = test.predict(Config, test_x, test_y, parameters)
+pred_test = test.test(Config, test_x, test_y, parameters)
 
-print "Cost of train set is : ", pred_train
+
 print "Cost of train set is : ", pred_test
