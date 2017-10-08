@@ -1,15 +1,13 @@
-import numpy as np
-import layers
-import logging
+from layers import softmax
 
-from layers import linear, linear_sigmoid, linear_relu, linear_tanh, softmax, linear, linear_leaky_relu, basic_layer
-
-def forward(config, act_layer, Xj, parameters):
+def forward(config, act_layer, X, parameters, L):
     caches = []
-    L = len(parameters) // 2  
-    A = Xj
-    for l in range(1, L):
-        A, cache = act_layer.forward(A, parameters)
+    A = X
+    print "A", A
+    print act_layer
+    for l in range(1, L - 1):
+        A, cache = act_layer.forward(A, parameters['W' + str(l)], parameters['b' + str(l)])
         caches.append(cache)
-    AL,cache = softmax.forward(A)    
-    return AL, caches
+    AL, cache = softmax.softmax.forward(A,parameters['W' + str(L - 1)], parameters['b' + str(L - 1)])  
+    caches.append(cache)
+    return AL

@@ -2,8 +2,9 @@ import numpy as np
 from basic_layer import Layer
 class LinearLayer(Layer):
     @staticmethod
-    def linear_forward(A, W, b):
-        Z = np.dot(W,A) + b
+    def forward(A, W, b):
+        print A.shape, W.shape, b.shape
+        Z = np.dot(W.T,A) + b
         cache = (A, W, b)   
         return Z, cache
 

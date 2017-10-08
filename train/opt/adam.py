@@ -5,20 +5,20 @@ import optimizer
 from optimizer import Optimizer
 
 class AdamOptimizer(Optimizer):
-    def __init__(self, layers_dims, learning_rate=0.001, beta1=0.9, beta2=0.999, epsilon=1e-8):
+    def __init__(self, layers_sizes, learning_rate=0.001, beta1=0.9, beta2=0.999, epsilon=1e-8):
         self._learning_rate = learning_rate
         self._beta1 = beta1
         self._beta2 = beta2
         self._epsilon = epsilon
         self._t = 0
-        layers_number = len(layers_dims)
+        layers_number = len(layers_sizes)
         self._v = {}
         self._s = {}
-        for l in range(0, layers_number):
-            self._v["dW" + str(l + 1)] = np.zeros((layers_dims[l + 1], layers_dims[l]))
-            self._v["db" + str(l + 1)] = np.zeros((layers_dims[l + 1], 1))
-            self._s["dW" + str(l + 1)] = np.zeros((layers_dims[l + 1], layers_dims[l]))
-            self._s["db" + str(l + 1)] = np.zeros((layers_dims[l + 1], 1))
+        for l in range(0, layers_number - 1):
+            self._v["dW" + str(l + 1)] = np.zeros((layers_sizes[l + 1], layers_sizes[l]))
+            self._v["db" + str(l + 1)] = np.zeros((layers_sizes[l + 1], 1))
+            self._s["dW" + str(l + 1)] = np.zeros((layers_sizes[l + 1], layers_sizes[l]))
+            self._s["db" + str(l + 1)] = np.zeros((layers_sizes[l + 1], 1))
     
     def update_parameters(self, parameters, grads):
         self._t += 1

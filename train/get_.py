@@ -2,9 +2,9 @@ import cost_function
 import opt
 import layers
 
-from cost_function import basic_cost_function,l1_cost_function,l2_cost_function,svm_cost_function
-from opt import adam,momentum,rmsprop,sgd
-from layers import linear, linear_sigmoid, linear_relu, linear_tanh, softmax, linear, linear_leaky_relu, basic_layer
+from dnn.train.cost_function import basic,cost_function,l1_cost_function,l2_cost_function
+from dnn.train.opt import adam,momentum,rmsprop,sgd
+from dnn.train.layers import linear, linear_sigmoid, linear_relu, linear_tanh, softmax, linear, linear_leaky_relu, basic_layer
 
 import sys
 import logging
@@ -34,28 +34,23 @@ def get_cost_funtion(c_f):
         sys.exit()
 
 def get_update_parameters(conf):
-    L = len(conf.layers)
+    L = len(conf.layers_sizes)
     learning_rate = conf.learning_rate
     opt = conf.opt
     if opt == "adam": 
-        adam = adam.AdamOptimizer(L, learning_rate, conf.beta1, conf.beta2)             
-        return adam
+        return adam.AdamOptimizer(conf.layers_sizes, learning_rate, conf.adam.beta1, conf.adam.beta2)             
     elif opt == "momentum":
-        mom = momentum.MomentumOptimizer(L, learning_rate)            
-        return mom
+        return momentum.MomentumOptimizer(conf.layers_sizes, learning_rate)            
     elif opt == "sgd":  
-        sgd = sgd.SgdOptimizer(learning_rate)             
-        return sgd
+        return sgd.SgdOptimizer(learning_rate)             
     elif opt == "rmsprop":  
-        rms = rms.RmspropOptimizer(L, learning_rate)              
-        return rms
+        return rmsprop.RmspropOptimizer(conf.layers_sizes, learning_rate)              
     else:
         logging.error("Print choice a method of opt for your model")
         sys.exit()
         
-        
 def get(config):
-    layer = get_layer(conf.activation_function)
+    layer = get_layer(config.activation_function)
     cost_fun = get_cost_funtion(config.cost_fun)
     opt = get_update_parameters(config)
     return layer, cost_fun, opt

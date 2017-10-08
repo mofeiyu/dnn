@@ -1,7 +1,7 @@
 class Layer:
     @staticmethod
-    def forward(z):
+    def forward(A, W, b):
         pass
     @staticmethod
-    def backward(z):
+    def backward(dA, cache, l):
         pass

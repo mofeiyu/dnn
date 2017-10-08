@@ -1,7 +1,13 @@
 import numpy as np
-from basic_layer import Layer
+from dnn.train.layers.basic_layer import Layer
+from dnn.train.layers.linear import LinearLayer
 class softmax(Layer):
     @staticmethod
-    def forward(z):
-        s = np.exp(z)/np.sum(np.exp(z),axis = 1, keepdims = True)
-        return s
+    def forward(A, W, b):
+        Z, cache = LinearLayer.forward(A, W, b)
+        S = np.exp(Z)/np.sum(np.exp(Z),axis = 1, keepdims = True)
+        return S, cache
+    @staticmethod
+    def backward(dA, cache, l):
+        dA, dW, db = LinearLayer.backward(dA, cache)
+        return dA, dW, db

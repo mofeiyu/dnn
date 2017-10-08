@@ -1,4 +1,5 @@
-from numpy import np
+import numpy as np
+from basic_layer import Layer
 from linear import LinearLayer
 class LinearLeakyRelu(Layer):
     @staticmethod
@@ -13,14 +14,13 @@ class LinearLeakyRelu(Layer):
         l_r = r + l
         r = np.multiply(dA,l_r)
         return r
-    def forward(A):
-        Z, cache = LinearLayer.forward(A)
-        s = leaky_relu(Z)
+    @staticmethod
+    def forward(A, W, b):
+        Z, cache = LinearLayer.forward(A, W, b)
+        s = LinearLeakyRelu.leaky_relu(Z)
         return s, cache
     @staticmethod
     def backward(dA, cache, l):
-        dZ = leaky_relu_backward(dA)
+        dZ = LinearLeakyRelu.leaky_relu_backward(dA)
         dA, dW, db = LinearLayer.backward(dZ, cache)
         return dA, dW, db
-
-    

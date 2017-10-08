@@ -12,12 +12,12 @@ class LinearTanh(Layer):
         dZ = np.dot(dA, (1-A**2))
         return dZ
     @staticmethod
-    def forward(A):
-        Z, cache = LinearLayer.forward(A)
-        t = tanh(Z)
+    def forward(A,W,b):
+        Z, cache = LinearLayer.forward(A,W,b)
+        t = LinearTanh.tanh(Z)
         return t, cache
     @staticmethod
     def backward(dA, cache, l):
-        dZ = tanh_backward(dA, cache)
+        dZ = LinearTanh.tanh_backward(dA, cache)
         dA, dW, db = LinearLayer.backward(dZ, cache)
         return dA, dW, db

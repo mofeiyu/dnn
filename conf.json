@@ -1,5 +1,5 @@
 {
-    "data_stand":"normalization",
+    "data_stand": "",
     "learning_rate": 0.001,
     "learning_decay": 0.00001,
     "layers_sizes": [128, 64, 32, 16, 10, 1],
@@ -7,11 +7,14 @@
     "batch_size": 128,
     "layer":"relu",
     "l1_regularization_strength": 3,
-    "l5_regularization_strength": 5,
+    "l2_regularization_strength": 5,
     "activation_function": "relu",
     "cost_fun": "lr_cost_function",
     "opt": "adam",
     "initialize_parameters":"initialization_he",
-    "checkpoint": "data/checkpoint"
-
+    "checkpoint": "data/checkpoint",
+    "adam": {
+    		"beta1": 0.9,
+    		"beta2": 0.999
+    }
 }
