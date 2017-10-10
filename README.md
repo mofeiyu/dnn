@@ -10,6 +10,7 @@ Use Mnist dataset. [Mnist Link](https://github.com/mnielsen/neural-networks-and-
 After 200 terators:
 
 1.training_data (loss = 0.0316252594751, hit count=49625, hit ratio = 99.25% )
+
 2.validation_data  (loss = 0.0316252594751, hit count=9646, hit ratio = 96.46% )
 
 
