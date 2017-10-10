@@ -23,7 +23,7 @@ def get_layer(a_f):
         sys.exit()
         
 def get_cost_funtion(c_f):
-    if c_f == "lr_cost_function":
+    if c_f == "cost_function":
         return cost_function.CostFunction
     elif c_f == "l1_cost_function":
         return l1_cost_function.L1CostFunction

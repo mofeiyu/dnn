@@ -16,7 +16,7 @@ class LinearSigmoid(Layer):
         s = LinearSigmoid.sigmoid(Z)
         return s, cache
     @staticmethod
-    def backward(dA, cache):
+    def backward(dA, cache, c_f_type, lambd = 0):
         dZ = LinearSigmoid.sigmoid_backward(dA, cache)
-        dA, dW, db = LinearLayer.backward(dZ, cache)
+        dA, dW, db = LinearLayer.backward(dZ, cache, c_f_type, lambd)
         return dA, dW, db

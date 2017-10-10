@@ -19,7 +19,7 @@ class LinearRelu(Layer):
         s = LinearRelu.relu(Z)
         return s, cache
     @staticmethod
-    def backward(dA, cache):
+    def backward(dA, cache, c_f_type, lambd = 0):
         dZ = LinearRelu.relu_backward(dA,cache)
-        dA, dW, db = LinearLayer.backward(dZ, cache)
+        dA, dW, db = LinearLayer.backward(dZ, cache, c_f_type, lambd)
         return dA, dW, db

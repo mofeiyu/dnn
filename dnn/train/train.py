@@ -44,7 +44,6 @@ def load(cache_data_dict):
     
 def L_layer_model(config, dataset, num_iterations = 3000, print_cost=False):
     X, Y = dataset.training_data.X, dataset.training_data.Y
-    learning_rate = config.learning_rate
     L = len(config.layers_sizes)
     m = X.shape[1]
     cost = []
@@ -53,14 +52,16 @@ def L_layer_model(config, dataset, num_iterations = 3000, print_cost=False):
         X, mean, var = normalization(X)
         parameters['u'] = mean
         parameters['v'] = var
-    ###   batch_num = m / config.batch_size
-    ###    if m % config.batch_size != 0:
-    ###       batch_num = batch_num + 1
     batch_num = 1
+###    batch_num = m / config.batch_size
+###    if m % config.batch_size != 0:
+###        batch_num = batch_num + 1
     act_layer, cost_function, update_parameters = get_.get(config)
     costs = []
     print list(X[100])
-    for i in range(0, num_iterations): 
+    basic_l_r = config.learning_rate
+    for i in range(0, num_iterations):
+        config.learning_rate = 1.0/(1 + config.learning_decay * i) * basic_l_r
         print "num_iterations:", i
         if batch_num != 1:
             permutation = list(np.random.permutation(m))
@@ -72,19 +73,19 @@ def L_layer_model(config, dataset, num_iterations = 3000, print_cost=False):
             else:
                 Xj,Yj = X,Y
             AL, caches = forward.forward(config, act_layer, Xj, parameters, L)          
-            cost = cost_function.cost(AL, Yj, L, parameters) 
-            print cost 
-            calculate_hit_count(AL, Y)         
+            cost = cost_function.cost(AL, Yj, L, parameters)         
             grads = backward.backward(config,AL, Yj, act_layer,caches)
             parameters = update_parameters.update_parameters(parameters, grads, L)
+        print cost 
+        calculate_hit_count(AL, Y) 
         logging.info("Cost after iteration %i: %f" %(i, cost))
         if print_cost and i % 100 == 0:
             logging.info("Cost after iteration %i: %f" %(i, cost))
         if print_cost and i % 100 == 0:
             costs.append(cost)
-    plt.plot(np.squeeze(costs))
+    """plt.plot(np.squeeze(costs))
     plt.ylabel('cost')
     plt.xlabel('iterations (per tens)')
     plt.title("Learning rate =" + str(learning_rate))
-    plt.show()
+    plt.show()"""
     return parameters

@@ -20,7 +20,7 @@ class LinearLeakyRelu(Layer):
         s = LinearLeakyRelu.leaky_relu(Z)
         return s, cache
     @staticmethod
-    def backward(dA, cache):
+    def backward(dA, cache, c_f_type, lambd = 0):
         dZ = LinearLeakyRelu.leaky_relu_backward(dA)
-        dA, dW, db = LinearLayer.backward(dZ, cache)
+        dA, dW, db = LinearLayer.backward(dZ, cache, c_f_type, lambd)
         return dA, dW, db

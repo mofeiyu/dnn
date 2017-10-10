@@ -8,6 +8,6 @@ class softmax(Layer):
         S = np.exp(Z)/np.sum(np.exp(Z),axis = 0, keepdims = True)
         return S, cache
     @staticmethod
-    def backward(dZ, cache):
-        dA, dW, db = LinearLayer.backward(dZ, cache)
+    def backward(dZ, cache,c_f_type, lambd = 0):
+        dA, dW, db = LinearLayer.backward(dZ, cache, c_f_type, lambd)
         return dA, dW, db

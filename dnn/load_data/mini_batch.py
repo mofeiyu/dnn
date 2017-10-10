@@ -1,6 +1,5 @@
 import normalization
 def mini_batch_data(X,Y,j,batch_size,batch_num,data_stand):
-    print "mini_batch_data"
     if j != batch_num-1:
         Xj,Yj = X[:,j*batch_size:(j+1)*batch_size],Y[:,j*batch_size:(j+1)*batch_size]
         if data_stand == "batch_normalization":

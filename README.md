@@ -13,6 +13,22 @@ After 200 terators:
 
 2.validation_data  (loss = 0.0316252594751, hit count=9646, hit ratio = 96.46% )
 
+~~~ json
+{
+    "learning_rate": 0.05,
+    "layers_sizes": [784, 128, 10],
+    "layer":"relu",
+    "activation_function": "relu",
+    "cost_fun": "lr_cost_function",
+    "opt": "adam",
+    "initialize_parameters":"initialization_he",
+    "adam": {
+        "beta1": 0.9,
+        "beta2": 0.999
+    }
+}
+~~~
+
 
 ### 2017.10.10 00:12 ###
 
