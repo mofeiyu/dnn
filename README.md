@@ -2,9 +2,47 @@
 
 ## 1. Introduce ##
 
-## 2. Update ##
+
+### 1. Dataset ###
 
 Use Mnist dataset. [Mnist Link](https://github.com/mnielsen/neural-networks-and-deep-learning/blob/master/data/mnist.pkl.gz)
+
+
+### 2. Normalization ###
+
+able to use Normalization
+
+
+### 3. Initialization ###
+
+Use ramdon initialization (initialization_ramdon) or Xavier initialization (initialization)
+
+
+### 4. Layer Function ###
+
+Every layer: use linear function
+
+Hidden layers: able to use Relu, Sigmoid, Tanh or Leaky_relu as activation function
+
+Output layer: use Softmax
+
+
+### 5. Cost Function ###
+
+Use log-likelihood cost function (able to use L1 or L2 regularization)
+
+
+### 6. Optimizers ###
+
+Able to use Adam, SGD, SGD+Momentum, or RMSprop Optimizer
+
+### 7. Model ###
+
+Hyper parameter tuning : conf.json
+
+
+## 2. Update ##
+
 
 ### 2017.10.11 13:38 ###
 After 200 terators:
@@ -17,9 +55,8 @@ After 200 terators:
 {
     "learning_rate": 0.05,
     "layers_sizes": [784, 128, 10],
-    "layer":"relu",
     "activation_function": "relu",
-    "cost_fun": "lr_cost_function",
+    "cost_fun": "cost_function",
     "opt": "adam",
     "initialize_parameters":"initialization_he",
     "adam": {
@@ -44,9 +81,8 @@ After 450 iterators:
 {
     "learning_rate": 0.05,
     "layers_sizes": [784, 128, 64, 10],
-    "layer":"relu",
     "activation_function": "relu",
-    "cost_fun": "lr_cost_function",
+    "cost_fun": "cost_function",
     "opt": "adam",
     "initialize_parameters":"initialization_he",
     "adam": {
@@ -70,9 +106,8 @@ After 450 iterators:
 {
     "learning_rate": 0.05,
     "layers_sizes": [784, 128, 64, 10],
-    "layer":"relu",
     "activation_function": "relu",
-    "cost_fun": "lr_cost_function",
+    "cost_fun": "cost_function",
     "opt": "sgd",
     "initialize_parameters":"initialization_he"
 }
