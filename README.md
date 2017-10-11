@@ -15,16 +15,16 @@ able to use Normalization
 
 ### 3. Initialization ###
 
-Use ramdon initialization (initialization_ramdon) or Xavier initialization (initialization)
+Use ramdon initialization (initialization_ramdon) or Xavier initialization (initialization_he)
 
 
 ### 4. Layer Function ###
 
-Every layer: use linear function
+1. Every layer: use linear function
 
-Hidden layers: able to use Relu, Sigmoid, Tanh or Leaky_relu as activation function
+2. Hidden layers: able to use Relu, Sigmoid, Tanh or Leaky_relu as activation function
 
-Output layer: use Softmax
+3. Output layer: use Softmax
 
 
 ### 5. Cost Function ###
@@ -47,9 +47,9 @@ Hyper parameter tuning : conf.json
 ### 2017.10.11 13:38 ###
 After 200 terators:
 
-1.training_data (loss = 0.0316252594751, hit count=49625, hit ratio = 99.25% )
+1. training_data (loss = 0.0316252594751, hit count=49625, hit ratio = 99.25% )
 
-2.validation_data  (loss = 0.0316252594751, hit count=9646, hit ratio = 96.46% )
+2. validation_data  (loss = 0.0316252594751, hit count=9646, hit ratio = 96.46% )
 
 ~~~ json
 {
