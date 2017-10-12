@@ -1,47 +1,107 @@
 # Deep Nerual Network #
 
-## 1. Introduce ##
+## Table of contents ##
+
+* [Features](#features)
+* [Supported networks](#supported-networks)
+* [Example](#Example)
 
 
-### 1. Dataset ###
+## Features ##
 
-Use Mnist dataset. [Mnist Link](https://github.com/mnielsen/neural-networks-and-deep-learning/blob/master/data/mnist.pkl.gz)
+- Reasonably fast, without GPU:
+
+    - 100% accuracy on training dataset(Mnist dataset[Mnist Link](https://github.com/mnielsen/neural-networks-and-deep-learning/blob/master/data/mnist.pkl.gz)) in about 3 minutes training, and 98% in validation dataset (adam + relu + softmax + mini_bacth)
+
+- Singleton Pattern:
+
+    - Safe , easy to tune Hyper parameter and build the network you need
+
+- Simple factory(static factory method):
+
+    - A good way to maintain and new class
+
+    - Modify your code with less change
+
+## Supported networks ##
+
+### layer-types ###
+
+- core
+
+    - fully-connected
+
+    - linear operation
+
+- normalization
+
+    - normalization 
+
+    - mini batch normalization 
+
+### activation functions ###
+
+* tanh
+
+* sigmoid
+
+* softmax(output layer)
+
+* rectified linear(relu)
+
+* leaky relu
+
+### loss functions ###
+
+* log-likelihood (with/without L1/L2 regularization)
 
 
-### 2. Normalization ###
+### optimization algorithms ###
 
-able to use Normalization
+* stochastic gradient descent 
 
+* momentum
 
-### 3. Initialization ###
+* rmsprop
 
-Use ramdon initialization (initialization_ramdon) or Xavier initialization (initialization_he)
+* adam
 
-
-### 4. Layer Function ###
-
-1. Every layer: use linear function
-
-2. Hidden layers: able to use Relu, Sigmoid, Tanh or Leaky_relu as activation function
-
-3. Output layer: use Softmax
+(with/without L1/L2 regularization)
 
 
-### 5. Cost Function ###
+## Example ##
 
-Use log-likelihood cost function (able to use L1 or L2 regularization)
+### 2017.10.12 10.17 ###
 
+After 30 iterators:
 
-### 6. Optimizers ###
+1. training_data (hit ratio = 100% )
 
-Able to use Adam, SGD, SGD+Momentum, or RMSprop Optimizer
+2. validation_data (hit ratio = 98.12% )
 
-### 7. Model ###
+3. test_data (hit ratio = 98.15%)
 
-Hyper parameter tuning : conf.json
-
-
-## 2. Update ##
+~~~ json
+{   
+    "learning_rate": 0.001,
+    "batch_size": 512,
+    "cost_function": "log-likelihood",
+    "num_iterations": 30,
+    "optimizer": "adam",
+    "initialization": "initialization_he", ###
+    "normalization" : false, 
+    "adam": {
+        "beta1" : 0.9,
+        "beta2" : 0.999,
+        "epsilon" : 1e-8
+    },
+    "layer": {
+        "layers_sizes": [784, 512, 10],
+        "activation_function": "relu",
+        "output_layer": "softmax"
+    }
+}
+~~~
 
 
 ### 2017.10.11 13:38 ###
