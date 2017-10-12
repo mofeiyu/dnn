@@ -1,6 +1,6 @@
 import numpy as np
 
-def initialization_he(layers_dims):
+def initialization_Xavier(layers_dims):
     parameters = {}
     L = len(layers_dims)
     for l in range(1, L):

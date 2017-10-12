@@ -88,7 +88,7 @@ After 30 iterators:
     "cost_function": "log-likelihood",
     "num_iterations": 30,
     "optimizer": "adam",
-    "initialization": "initialization_he", ###
+    "initialization": "initialization_Xavier",
     "normalization" : false, 
     "adam": {
         "beta1" : 0.9,
