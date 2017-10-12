@@ -4,7 +4,7 @@
 
 * [Features](#features)
 * [Supported networks](#supported-networks)
-* [Example](#Example)
+* [Examples](#examples)
 
 
 ## Features ##
@@ -15,7 +15,7 @@
 
 - Singleton Pattern:
 
-    - Safe , easy to tune Hyper parameter and build the network you need
+    - Safe , easy to tune Hyper parameter and build the network as you need
 
 - Simple factory(static factory method):
 
@@ -45,20 +45,20 @@
 
 * sigmoid
 
-* softmax(output layer)
+* softmax
 
 * rectified linear(relu)
 
 * leaky relu
 
-### loss functions ###
+### loss function ###
 
 * log-likelihood (with/without L1/L2 regularization)
 
 
 ### optimization algorithms ###
 
-* stochastic gradient descent 
+* stochastic gradient descent(sgd) 
 
 * momentum
 
@@ -69,7 +69,7 @@
 (with/without L1/L2 regularization)
 
 
-## Example ##
+## Examples ##
 
 ### 2017.10.12 10.17 ###
 
