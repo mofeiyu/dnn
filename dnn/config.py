@@ -9,12 +9,16 @@ def singleton(cls):
     instance.__call__ = lambda: instance
     return instance
 
+class MiniBatch:
+    def __init__(self, conf):
+        self.mini_batch = conf['mini_batch']
+        self.batch_size = conf['batch_size']
+
 class LayerConfig:
     def __init__(self, conf):
         self.hidden_units = conf['hidden_units']
         self.dropout = conf['dropout']
         self.activation_function = conf['activation_function']
-        self.input_size = conf['input_size']
         self.n_classes = conf['n_classes']
 
 class MomentumConfig:
@@ -50,7 +54,7 @@ class Config():
         self.initialization = conf['initialization']
         self.learning_rate = conf['learning_rate']
         self.learning_decay = conf['learning_decay']
-        self.batch_size = conf['batch_size']
+        self.mini_batch = MiniBatch(conf['mini_batch'])
         self.optimizer = conf['optimizer']
         self.checkpoint = conf['checkpoint']
         self.init_checkpoint = conf['init_checkpoint']

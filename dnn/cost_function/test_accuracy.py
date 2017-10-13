@@ -1,6 +1,6 @@
 import logging
 
-def test_hit_metric(AL, Y):
+def test_accuracy(AL, Y):
     hit_count = 0
     for j in range(AL.shape[1]):
         max_val = -1e8
