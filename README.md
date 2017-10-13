@@ -1,4 +1,4 @@
-# Deep Nerual Network #
+# Deep Neural Network #
 
 ## Table of contents ##
 
@@ -15,7 +15,7 @@
 
 - Singleton Pattern:
 
-    - Safe , easy to tune Hyper parameter and build the network as you need
+    - Safe , easy to tune hyper parameter and build the network as you need
 
 - Simple factory(static factory method):
 
