@@ -46,6 +46,9 @@ class DnnModel:
             self._config.learning_rate = 1.0/(1 + self._config.learning_decay * i) * basic_l_r
             if self._config.mini_batch.mini_batch:
                 mini_batchs = mini_batch_data(train_X, train_Y, self._config.mini_batch.batch_size)
+            else :
+                mini_batchs[]
+                mini_batchs.append((train_X, train_Y))
             hit_count = 0
             for X, Y in mini_batchs:                
                 self._forward(X)          

@@ -13,7 +13,7 @@ class LayerFactory( ):
             return LinearTanh, LinearSoftmax
         elif h_l == "relu":
             return LinearRelu, LinearSoftmax
-        elif h_l == "reaky_relu":
+        elif h_l == "leaky_relu":
             return LinearLeakyRelu, LinearSoftmax
         elif h_l == "sigmoid":
             return LinearSigmoid, LinearSoftmax
