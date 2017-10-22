@@ -25,5 +25,5 @@ class MomentumOptimizer(Optimizer):
             self._v[db] = self._beta * self._v[db] + (1 - self._beta) * grads[db]
             # update parameters
             parameters['W' + str(l+1)] -= self._learning_rate * self._v[dW]
-            parameters['b' + str(l+1)] -= self._learning_rate * self._beta * self._v[db]
+            parameters['b' + str(l+1)] -= self._learning_rate * self._v[db]
         return parameters   

@@ -54,8 +54,8 @@ optimizer: adam
  | relu | 30 | 59.07 | 99.98% | 97.94% | 97.98% |
  | leaky_relu | 30 | 62.67 | 91.84% | 92.48% | 91.88% |
 
-![Alt text](/img/optimizer/cost.png)
-![Alt text](/img/optimizer/accuracy.png)
+![Alt text](/img/activation_function/cost.png)
+![Alt text](/img/activation_function/accuracy.png)
 
 ## 4. Optimizer ##
 
@@ -67,10 +67,10 @@ activation function: relu
 
  |  optimizer | epochs | run time(seconds) | train accuracy | validation accuracy | test accuracy |
  |  ------------- |:-------------: |  -----: |  -----: |  -----: |  -----: |
- | sgd | 30 | 52.30 | 81.21% | 83.42% | 82.75% |
- | momentum | 30 | 58.09 | 81.17% | 83.40% | 82.67% |
- | rmsprop | 30 | 59.65 | 99.98% | 97.71% | 97.87% |
- | adam | 30 | 62.98 | 99.98% | 97.94% | 97.98% |
+| sgd | 30 | 49.37 | 81.21% | 83.42% | 82.75% |
+| momentum | 30 | 50.31 | 81.18% | 83.41% | 82.67% |
+| rmsprop | 30 | 51.44 | 99.98% | 97.71% | 97.87% |
+| adam | 30 | 57.19 | 99.98% | 97.94% | 97.98% |
 
 ![Alt text](/img/optimizer/cost.png)
 ![Alt text](/img/optimizer/accuracy.png)

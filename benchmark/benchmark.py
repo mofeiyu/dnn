@@ -114,7 +114,7 @@ class Benchmark:
             label = meta_data.get_label(run_time)
             plt.plot(np.squeeze(metric.train_metric.accuracy), color, label = label)
             # | ${metric_value} | epochs | run time(seconds) | train accuracy | validation accuracy | test accuracy |
-            print '|%s|%d|%.2f|%.2f%%|%.2f%%|%.2f%%|'\
+            print '| %s | %d | %.2f | %.2f%% | %.2f%% | %.2f%% |'\
                 % (meta_data.metric_name.split(' = ')[-1],
                    meta_data.num_iterations,
                    run_time,
