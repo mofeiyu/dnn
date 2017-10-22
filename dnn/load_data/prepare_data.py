@@ -1,7 +1,7 @@
 #encode=utf-8
 
+import os
 import gzip
-import random
 import cPickle
 import numpy as np
 
@@ -20,7 +20,8 @@ class MinistDataset:
         self._load_data_wrapper()
         
     def _load_data(self):
-        f = gzip.open('../data/mnist.pkl.gz', 'rb')
+        data_path = os.path.dirname(os.path.abspath(__file__)) + '/../../data/mnist.pkl.gz'
+        f = gzip.open(data_path, 'rb')
         training_data, validation_data, test_data = cPickle.load(f)
         f.close()
         return (training_data, validation_data, test_data)

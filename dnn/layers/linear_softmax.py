@@ -5,7 +5,9 @@ class LinearSoftmax(Layer):
     @staticmethod
     def forward(A, W, b):
         Z, cache = LinearLayer.forward(A, W, b)
-        S = np.exp(Z)/np.sum(np.exp(Z),axis = 0, keepdims = True)
+        # avoid overflow
+        max_z = np.max(Z, axis = 0)
+        S = np.exp(Z - max_z)/(1e-8 + np.sum(np.exp(Z - max_z), axis = 0, keepdims = True))
         return S, cache
     @staticmethod
     def backward(dZ, cache,c_f_type, lambd = 0):

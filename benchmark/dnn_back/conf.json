@@ -1,0 +1,36 @@
+{
+	"learning_rate": 0.01,
+	"learning_decay": 0.00001,
+	"l1_regularization_strength": 3,
+	"l2_regularization_strength": 5,
+	"cost_function": "log-likelihood",
+	"num_iterations": 20,
+	"optimizer": "adam",
+	"initialization": "initialization_Xavier",
+	"normalization" : false, 
+	"mini_batch":{
+		"mini_batch": true,
+		"batch_size": 512
+	},
+	"adam": {
+		"beta1" : 0.9,
+		"beta2" : 0.999,
+		"epsilon" : 1e-8
+	},
+	"momentum": {
+		"beta" : 0.9
+	},
+	"rmsprop": {
+		"beta" : 0.999,
+		"epsilon" : 1e-8
+	},
+	"layer": {
+		"hidden_units": [256],
+		"dropout": [0, 0, 0, 0],
+		"activation_function": "relu",
+		"n_classes": 10,
+		"output_layer": "softmax"
+	},
+	"checkpoint": "data/checkpoint",
+	"init_checkpoint": ""
+}

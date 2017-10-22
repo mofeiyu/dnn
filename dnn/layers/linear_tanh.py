@@ -10,7 +10,7 @@ class LinearTanh(Layer):
     def tanh_backward(dA, cache):
         A, W, b= cache
         A, cache= LinearTanh.forward(A, W, b)
-        dZ = np.multiply(dA, (1-A**2).T)
+        dZ = np.multiply(dA, (1-np.multiply(A, A)))
         return dZ
     @staticmethod
     def forward(A,W,b):

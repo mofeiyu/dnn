@@ -1,13 +1,13 @@
 # Deep Neural Network #
 
-## Table of contents ##
+## 1. Table of contents ##
 
 * [Features](#features)
 * [Supported networks](#supported-networks)
 * [Examples](#examples)
 
 
-## Features ##
+## 2. Features ##
 
 - Reasonably fast, without GPU:
 
@@ -23,7 +23,7 @@
 
     - Modify your code with less change
 
-## Supported networks ##
+## 3. Supported networks ##
 
 ### layer-types ###
 
@@ -68,8 +68,11 @@
 
 (with/without L1/L2 regularization)
 
+## 4. Benchmark ##
 
-## Examples ##
+[Benchmark](/benchmark.md)
+
+## 5. Examples ##
 
 ### 2017.10.12 10.17 ###
 
