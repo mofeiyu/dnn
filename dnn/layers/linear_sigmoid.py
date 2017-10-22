@@ -8,7 +8,8 @@ class LinearSigmoid(Layer):
     @staticmethod
     def sigmoid_backward(dA, cache):
         A, W, b = cache
-        dZ = np.dot(dA, np.dot(A, (1 - A)))
+        A,_ = LinearSigmoid.forward(A, W, b)
+        dZ = np.multiply(dA, np.multiply(A, (1 - A)))
         return dZ
     @staticmethod
     def forward(A,W,b):
