@@ -5,7 +5,9 @@ We set random seed as 20171022 in order to get the same result every time.
 ## 1. Learning Rate ##
 
 mini-batch
+
 activation function: relu
+
 optimizer: adam
 
  |  learning rate | epochs | run time(seconds) | train accuracy | validation accuracy | test accuracy |
@@ -22,7 +24,9 @@ optimizer: adam
 ## 2. Mini-Batch ##
 
 learning_rate: 0.001
+
 activation function: relu
+
 optimizer: adam
 
  |  mini-batch | epochs | run time(seconds) | train accuracy | validation accuracy | test accuracy |
@@ -38,7 +42,9 @@ optimizer: adam
 ## 3. Activation Function ##
 
 mini-batch
+
 learning_rate: 0.001
+
 optimizer: adam
 
  |  activation function | epochs | run time(seconds) | train accuracy | validation accuracy | test accuracy |
@@ -54,7 +60,9 @@ optimizer: adam
 ## 4. Optimizer ##
 
 mini-batch
+
 learning_rate: 0.001
+
 activation function: relu
 
  |  optimizer | epochs | run time(seconds) | train accuracy | validation accuracy | test accuracy |
