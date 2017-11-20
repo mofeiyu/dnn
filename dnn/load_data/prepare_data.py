@@ -48,18 +48,9 @@ class ReaderWrapper:
         
     def get_training_data(self):
         return self._dataset.training_data.X, self._dataset.training_data.Y
-    
-    def get_ong_data(self):
-        return self._dataset.training_data.X[0], self._dataset.training_data.Y[0]
         
     def get_validation_data(self):
         return self._dataset.validation_data.X, self._dataset.validation_data.Y
     
     def get_test_data(self):
-        return self._dataset.test_data.X, self._dataset.test_data.Y
-
-if __name__ == '__main__':
-    reader = ReaderWrapper()
-    indexs = reader.get_mini_batchs()
-    print indexs[0][0]
-    
+        return self._dataset.test_data.X, self._dataset.test_data.Y    
